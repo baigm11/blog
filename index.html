@@ -1,140 +1,543 @@
-<style>
-  .education-item {
-  }
-  .year {
-    position: absolute;
-    left: 600px; /* 离右边固定20像素 */
-  }
-</style>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
-        /* 方法1：给body添加左边距 */
-        body {
-            background-color: #f5f5f5;  /* 浅灰色背景 */ /*e9e9e9*/
-            margin-left: 20px;  /* 向右移动100像素 */
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Genming Bai, Assistant Professor of Mathematics and Statistics at Old Dominion University."
+  />
+  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+
+  <title>Genming Bai</title>
+
+  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <style>
+    /*
+     * Retain the original jemdoc-style academic layout while making the page
+     * responsive and removing fixed-position elements.
+     */
+    :root {
+      --page-background: #f5f5f5;
+      --text-color: #222;
+      --muted-color: #555;
+      --rule-color: #c9c9c9;
+      --link-color: #224b8d;
+      --content-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--page-background);
+      color: var(--text-color);
+    }
+
+    #tlayout {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 0 auto;
+      table-layout: fixed;
+    }
+
+    #layout-content {
+      width: 100%;
+      padding: 22px 0 42px;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    /* Personal information */
+    .personal-info {
+      display: grid;
+      grid-template-columns: minmax(420px, 1.55fr) minmax(280px, 1fr);
+      column-gap: 64px;
+      align-items: start;
+      margin: 6px 0 32px;
+      max-width: 900px;
+    }
+
+    .personal-info h1 {
+      margin: 0 0 9px;
+      padding: 0;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .personal-info p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .personal-position {
+      font-size: 17px;
+    }
+
+    .personal-address {
+      padding-top: 8px;
+      font-size: 16px;
+    }
+
+    .personal-contact {
+      margin-top: 9px !important;
+    }
+
+    .academic-links {
+      margin-top: 11px !important;
+    }
+
+    /* Dated entries */
+    .entry {
+      margin: 0 0 14px;
+    }
+
+    .entry-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) max-content;
+      column-gap: 24px;
+      align-items: baseline;
+    }
+
+    .entry-title {
+      font-weight: bold;
+    }
+
+    .year {
+      position: static;
+      white-space: nowrap;
+      text-align: right;
+      font-style: italic;
+      color: var(--muted-color);
+    }
+
+    .entry-details {
+      margin: 2px 0 0;
+      line-height: 1.4;
+    }
+
+    /* Research interests */
+    .interest-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .interest-list li {
+      margin: 4px 0;
+    }
+
+    /* Publications */
+    .publications {
+      padding-left: 28px;
+    }
+
+    .publications li {
+      margin: 0 0 13px;
+      padding-left: 4px;
+    }
+
+    .publications p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .journal,
+    .status {
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .publication-links {
+      white-space: nowrap;
+    }
+
+    .journal-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .journal-links li {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 760px) {
+      #tlayout {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      #layout-content {
+        padding-top: 16px;
+      }
+
+      .personal-info {
+        grid-template-columns: 1fr;
+        row-gap: 18px;
+      }
+
+      .personal-address {
+        padding-top: 0;
+      }
+
+      .entry-header {
+        grid-template-columns: 1fr;
+        row-gap: 2px;
+      }
+
+      .year {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .personal-info h1 {
+        font-size: 30px;
+      }
+
+      .personal-position,
+      .personal-address {
+        font-size: 15px;
+      }
+
+      .publications {
+        padding-left: 23px;
+      }
+    }
+  </style>
 </head>
-<head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="bookmark" href="favicon.ico" type="image/x-icon"　/>
-<title>Genming Bai</title>
-</head>
+
 <body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
+  <table summary="Table for page layout." id="tlayout">
+    <tbody>
+      <tr>
+        <td id="layout-content">
+          <header class="personal-info">
+            <div class="personal-main">
+              <h1>Genming Bai</h1>
 
-<h1>Genming Bai </h1>
+              <p class="personal-position">
+                Assistant Professor<br />
+                Department of Mathematics and Statistics<br />
+                Old Dominion University<br />
+                Norfolk, Commonwealth of Virginia, USA
+              </p>
+            </div>
 
-<table class="imgtable"><tr><td>
-<a href="https://baim11.github.io/"></a>&nbsp;</td>
-<p><b>Assistant Professor (tenure track) </b> <br />
-Department of Mathematics and Statistics, Old Dominion University <br />
-Norfolk, Virginia, USA <br /> 
-E-mail: <a href="mailto:gbai@odu.edu">gbai AT odu.edu</a>, <a href="mailto:gbai@pku.edu.cn">gbai AT pku.edu.cn</a></p>
+            <div class="personal-address">
+              <p>
+                4700 Elkhorn Avenue<br />
+                Engineering and Computational<br />
+                Sciences Building, Room 2300<br />
+                Norfolk, VA 23529
+              </p>
 
-<a href="https://mathscinet.ams.org/mathscinet/MRAuthorID/1509490">MATHSCINET</a>, 
-<a href="https://scholar.google.com/citations?user=6KW1FQoAAAAJ&hl=en">Google Scholar</a>
-<!--
-<h2>About me</h2>
-<p>I am currently an assistant professor (non-tenure track) at <a href="https://umich.edu/">University of Michigan</a> working on applied and computational mathematics. I obtained my PhD degree from <a href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University (PolyU)</a> (2022--2023). Prior to that I obtained a master degree in CSE (Robotics track) and a bachelor degree in Physics from <a href="https://ethz.ch/en.html">ETH Zürich</a> and <a href="https://english.pku.edu.cn/">Peking University</a> respectively.</p>
--->
-<h2>Research interests</h2>
-<!--<ul>-->
-<!--<li>--><p>Numerical methods and analysis for linear and nonlinear PDEs</p>
-  </li>
-  <p>Computational science</p>
-<!--</ul>-->
-<h2>Employment</h2>
-<p><b>Assistant Professor (tenure track) </b> <span class="year">2026--current</span> <br /> 
-Department of Mathematics and Statistics, <a href="https://www.odu.edu/">Old Dominion University</a>, Norfolk, VA </p>
-<p><b>Assistant Professor (non-tenure track) </b> <span class="year">2024--2026</span> <br /> 
-Department of Mathematics, <a href="https://umich.edu/">University of Michigan</a>, Ann Arbor, MI</p>
-<p><b>Postdoctoral Fellow</b> <span class="year">2023--2024</span> <br /> 
-Department of Applied Mathematics, <a href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a></p>
-</li>
-</ul>
-<h2>Education</h2>
-<p><b>Ph.D.</b> in Applied Mathematics, <a href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a> <span class="year">2022--2023</span> </p>
-<p><b>M.Sc.</b> in Computational Science and Engineering<!--(Robotics track)-->, <a href="https://ethz.ch/en.html">ETH Zürich</a> <span class="year">2018--2021</span></p>
-<p><b>B.Sc.</b> in Physics, <a href="https://english.pku.edu.cn/">Peking University</a> <span class="year">2014--2018</span></p>
-<h2>Awards</h2>
-<p>Junior Fellowship, Institut Mittag-Leffler, Djursholm, Sweden <span class="year">Fall 2025</span></p>
-<p>Faculty of Science Outstanding PhD Thesis Awards<!--<a href="https://1drv.ms/b/s!AqLzYQCGIx47gdNK1C1TBYkYjwmn0A?e=d24E6Q">(Link)</a>-->, HK PolyU <span class="year">Sept. 2024</span></p>
-<p>The Hong Kong Mathematical Society (HKMS) Best Thesis Award<!--<a href="https://1drv.ms/i/s!AqLzYQCGIx47gbotoCmgDXk4AC2QkQ?e=aMAnNa">(Link)</a>--> <span class="year">May 2024</span></p>
-<p>Silver Medal, the 30th Chinese Physics Olympiad (CPHO)<!--<a href="https://cpho.pku.edu.cn">(Link)</a>--> <span class="year">Nov. 2013</span> </p>
-</li>
-</ul>
-<h2>Publications </h2>
-<ol>
-<li><p><b>G. Bai</b>. A spherical harmonic pseudo-spectral approach to mean curvature flow of surfaces with spherical topology. <b><i> Submitted.</i></b> arXiv:2606.21615 </p>
-</li>
-<li><p><b>G. Bai</b> and S. Veerapaneni. A structure-preserving fast spectral method for locally inextensible vesicles with tangential smoothing. <b><i> To be submitted.</i></b> </p>
-</li>
-<li><p><b>G. Bai</b>, H. Garcke, and S. Veerapaneni. A convergent finite element method for two-phase Stokes flow driven by surface tension <b><i> Foundations of Computational Mathematics </i></b> (to appear) arXiv:2509.20111 </p>
-<li><p><b>G. Bai</b>, H. Garcke, and S. Veerapaneni. Convergence analysis for the Barrett–Garcke–Nürnberg method of transport type. <b><i> Numerische Mathematik</i></b>, 2025. doi: 10.1007/s00211-025-01521-3 </p>
-<li><p><b>G. Bai</b>, J. Cui, and B. Li. Discrete stochastic maximal Lp-Lq regularity of semi-discrete finite element methods. <b><i>Submitted.</i></b> </p>
-</li>
-<li><p><b>G. Bai</b>, B. Li, and Y. Xie. Convergence of BGN-type method for surface diffusion. <b><i> To be submitted.</i></b> </p>
-</li>
-<li><p><b>G. Bai</b>, B. Kovács, and B. Li. Maximal regularity of parametric finite element method for parabolic equations on evolving surfaces. <b><i>IMA Journal of Numerical Analysis</i></b>, 2025. doi: 10.1093/imanum/draf082 </p>
-</li>
-<li><p><b>G. Bai</b>, D. Leykekhman, and B. Li. Weak maximum principle of finite element methods for parabolic equations in polygonal domains. <b><i> Numerische Mathematik</i></b>, 2025. doi: 10.1007/s00211-025-01453-y </p>
-</li>
-<li><p><b>G. Bai</b>, X. Gui, and B. Li. Convergence of multistep projection methods for harmonic map heat flows into general surfaces. <b><i>Numerische Mathematik</i></b>, 2025. doi: 10.1007/s00211-025-01464-9 </p>
-</li>
-<li><p><b>G. Bai</b> and B. Li. Convergence of parametric finite element methods of the Barrett–Garcke–Nürnberg type for curve shortening flow. <b><i>Mathematics of Computation</i></b>, 2024 (70 pages). doi: 10.1090/mcom/4019 </p>
-</li>
-<li><p><b>G. Bai</b>, J. Hu, and B. Li. A convergent evolving finite element method with artificial tangential motion for surface evolution under a prescribed velocity field. <b><i>SIAM Journal on Numerical Analysis</i></b>, 2024. doi: 10.1137/23M156968X </p>
-</li>
-<li><p><b>G. Bai</b>, J. Hu, and B. Li. Arbitrary high-order mass and energy conserving methods for the Schrödinger equation. <b><i>SIAM Journal on Scientific Computing</i></b>, 2024. doi: 10.1137/22M152178X </p>
-</li>
-<li><p><b>G. Bai</b> and B. Li. A new approach to the analysis of parametric finite element approximation to mean curvature flow. <b><i>Foundations of Computational Mathematics</i></b>, 2023 (65 pages). doi: 10.1007/s10208-023-09622-x </p>
-</li>
-<li><p><b>G. Bai</b> and B. Li. Erratum: Convergence of Dziuk’s semidiscrete finite element method for mean curvature flow of closed surfaces with high-order finite elements. <b><i>SIAM Journal on Numerical Analysis</i></b>, 2023. doi: 10.1137/22M1521791 </p>
-</li>
-<li><p><b>G. Bai</b>, B. Li and Y. Wu. A constructive low-regularity integrator for the one-dimensional cubic nonlinear Schrödinger equation under Neumann boundary condition. <b><i>IMA Journal of Numerical Analysis</i></b>, 2022. doi: 10.1093/imanum/drac075 </p>
-</li>
-<li><p><b>G. Bai</b>, U. Koley, S. Mishra, and R. Molinaro. Physics Informed Neural Networks (PINNs) for approximating nonlinear dispersive PDEs. <b><i>Journal of Computational Mathematics</i></b>, 2021. doi: 10.4208/jcm.2101-m2020-0342 </p>
-</li>
-<!--
-</ol>
-<p>Preprints available upon request.</p>
--->
-<!--
-<h2>Teaching</h2>
-<p> Numerical Methods (MATH 371), UMICH, Spring 2026 </p>
-<p> Introduction to Numerical Methods (MATH 471), UMICH, Spring 2025 </p>
-<p> Calculus II (MATH 116), UMICH, Autumn 2024 </p>
-<p> Statistical Machine Learning (tutorial course), HK PolyU, Autumn 2023 </p>
--->
-</ol>
-</ul>
-<h2>Links</h2>
-<p> <a href="https://link.springer.com/journal/10208">Foundations of Computational Mathematics</a> </p>
-<p> <a href="https://link.springer.com/journal/211">Numerische Mathematik</a> </p>
-<p> <a href="https://www.ams.org/publications/journals/journalsframework/mcom">Mathematics of Computation</a> </p>
-<p> <a href="https://academic.oup.com/imajna">IMA Journal of Numerical Analysis</a> </p>
-<p> <a href="https://epubs.siam.org/journal/sjnaam">SIAM Journal on Numerical Analysis</a> </p>
+              <p class="personal-contact">
+                Email:
+                <a href="mailto:gbai@odu.edu">gbai@odu.edu</a><br />
+                Homepage:
+                <a href="https://baim11.github.io/">baim11.github.io</a>
+              </p>
 
-<!--
-<h2>Others</h2>
-<div style="text-align; padding: 0px 20px 20px 20px;">
-  <blockquote style="font-size: 1.2em; font-style: italic; margin-bottom: 10px;">
-    “You know how to get eternal life
-    in the center of the lightning-speed waltz”
-    <cite>— 《Macross Plus》</cite>
-  </blockquote>
-  -->
-</div>
-</td>
-</tr>
-</table>
+              <p class="academic-links">
+                <a href="https://mathscinet.ams.org/mathscinet/MRAuthorID/1509490">MathSciNet</a>
+                &nbsp;|&nbsp;
+                <a href="https://scholar.google.com/citations?user=6KW1FQoAAAAJ&amp;hl=en">Google Scholar</a>
+              </p>
+            </div>
+          </header>
+
+          <main>
+            <section>
+              <h2>Research Interests</h2>
+              <ul class="interest-list">
+                <li>Numerical methods and analysis for linear and nonlinear PDEs</li>
+                <li>Computational science</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Employment</h2>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span class="entry-title">Assistant Professor (tenure track)</span>
+                  <span class="year">2026&ndash;present</span>
+                </div>
+                <p class="entry-details">
+                  Department of Mathematics and Statistics,
+                  <a href="https://www.odu.edu/">Old Dominion University</a>,
+                  Norfolk, VA
+                </p>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span class="entry-title">Assistant Professor (non-tenure track)</span>
+                  <span class="year">2024&ndash;2026</span>
+                </div>
+                <p class="entry-details">
+                  Department of Mathematics,
+                  <a href="https://umich.edu/">University of Michigan</a>,
+                  Ann Arbor, MI
+                </p>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span class="entry-title">Postdoctoral Fellow</span>
+                  <span class="year">2023&ndash;2024</span>
+                </div>
+                <p class="entry-details">
+                  Department of Applied Mathematics,
+                  <a href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a>
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2>Education</h2>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span><strong>Ph.D.</strong> in Applied Mathematics,
+                    <a href="https://www.polyu.edu.hk/">The Hong Kong Polytechnic University</a>
+                  </span>
+                  <span class="year">2022&ndash;2023</span>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span><strong>M.Sc.</strong> in Computational Science and Engineering,
+                    <a href="https://ethz.ch/en.html">ETH Z&uuml;rich</a>
+                  </span>
+                  <span class="year">2018&ndash;2021</span>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span><strong>B.Sc.</strong> in Physics,
+                    <a href="https://english.pku.edu.cn/">Peking University</a>
+                  </span>
+                  <span class="year">2014&ndash;2018</span>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h2>Awards</h2>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span>Junior Fellowship, Institut Mittag-Leffler, Djursholm, Sweden</span>
+                  <span class="year">Fall 2025</span>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span>Faculty of Science Outstanding PhD Thesis Awards, HK PolyU</span>
+                  <span class="year">Sept. 2024</span>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span>The Hong Kong Mathematical Society (HKMS) Best Thesis Award</span>
+                  <span class="year">May 2024</span>
+                </div>
+              </div>
+
+              <div class="entry">
+                <div class="entry-header">
+                  <span>Silver Medal, the 30th Chinese Physics Olympiad (CPHO)</span>
+                  <span class="year">Nov. 2013</span>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h2>Publications</h2>
+
+              <ol class="publications">
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>.
+                    A spherical harmonic pseudo-spectral approach to mean curvature flow of surfaces with spherical topology.
+                    <span class="status">Submitted.</span>
+                    <span class="publication-links"><a href="https://arxiv.org/abs/2606.21615">arXiv:2606.21615</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong> and S. Veerapaneni.
+                    A structure-preserving fast spectral method for locally inextensible vesicles with tangential smoothing.
+                    <span class="status">To be submitted.</span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, H. Garcke, and S. Veerapaneni.
+                    A convergent finite element method for two-phase Stokes flow driven by surface tension.
+                    <span class="journal">Foundations of Computational Mathematics</span>, to appear.
+                    <span class="publication-links"><a href="https://arxiv.org/abs/2509.20111">arXiv:2509.20111</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, H. Garcke, and S. Veerapaneni.
+                    Convergence analysis for the Barrett&ndash;Garcke&ndash;N&uuml;rnberg method of transport type.
+                    <span class="journal">Numerische Mathematik</span>, 2025.
+                    <span class="publication-links"><a href="https://doi.org/10.1007/s00211-025-01521-3">doi: 10.1007/s00211-025-01521-3</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, J. Cui, and B. Li.
+                    Discrete stochastic maximal <i>L<sup>p</sup>-L<sup>q</sup></i> regularity of semi-discrete finite element methods.
+                    <span class="status">Submitted.</span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, B. Li, and Y. Xie.
+                    Convergence of BGN-type method for surface diffusion.
+                    <span class="status">To be submitted.</span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, B. Kov&aacute;cs, and B. Li.
+                    Maximal regularity of parametric finite element method for parabolic equations on evolving surfaces.
+                    <span class="journal">IMA Journal of Numerical Analysis</span>, 2025.
+                    <span class="publication-links"><a href="https://doi.org/10.1093/imanum/draf082">doi: 10.1093/imanum/draf082</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, D. Leykekhman, and B. Li.
+                    Weak maximum principle of finite element methods for parabolic equations in polygonal domains.
+                    <span class="journal">Numerische Mathematik</span>, 2025.
+                    <span class="publication-links"><a href="https://doi.org/10.1007/s00211-025-01453-y">doi: 10.1007/s00211-025-01453-y</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, X. Gui, and B. Li.
+                    Convergence of multistep projection methods for harmonic map heat flows into general surfaces.
+                    <span class="journal">Numerische Mathematik</span>, 2025.
+                    <span class="publication-links"><a href="https://doi.org/10.1007/s00211-025-01464-9">doi: 10.1007/s00211-025-01464-9</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong> and B. Li.
+                    Convergence of parametric finite element methods of the Barrett&ndash;Garcke&ndash;N&uuml;rnberg type for curve shortening flow.
+                    <span class="journal">Mathematics of Computation</span>, 2024 (70 pages).
+                    <span class="publication-links"><a href="https://doi.org/10.1090/mcom/4019">doi: 10.1090/mcom/4019</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, J. Hu, and B. Li.
+                    A convergent evolving finite element method with artificial tangential motion for surface evolution under a prescribed velocity field.
+                    <span class="journal">SIAM Journal on Numerical Analysis</span>, 2024.
+                    <span class="publication-links"><a href="https://doi.org/10.1137/23M156968X">doi: 10.1137/23M156968X</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, J. Hu, and B. Li.
+                    Arbitrary high-order mass and energy conserving methods for the Schr&ouml;dinger equation.
+                    <span class="journal">SIAM Journal on Scientific Computing</span>, 2024.
+                    <span class="publication-links"><a href="https://doi.org/10.1137/22M152178X">doi: 10.1137/22M152178X</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong> and B. Li.
+                    A new approach to the analysis of parametric finite element approximation to mean curvature flow.
+                    <span class="journal">Foundations of Computational Mathematics</span>, 2023 (65 pages).
+                    <span class="publication-links"><a href="https://doi.org/10.1007/s10208-023-09622-x">doi: 10.1007/s10208-023-09622-x</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong> and B. Li.
+                    Erratum: Convergence of Dziuk&rsquo;s semidiscrete finite element method for mean curvature flow of closed surfaces with high-order finite elements.
+                    <span class="journal">SIAM Journal on Numerical Analysis</span>, 2023.
+                    <span class="publication-links"><a href="https://doi.org/10.1137/22M1521791">doi: 10.1137/22M1521791</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, B. Li, and Y. Wu.
+                    A constructive low-regularity integrator for the one-dimensional cubic nonlinear Schr&ouml;dinger equation under Neumann boundary condition.
+                    <span class="journal">IMA Journal of Numerical Analysis</span>, 2022.
+                    <span class="publication-links"><a href="https://doi.org/10.1093/imanum/drac075">doi: 10.1093/imanum/drac075</a></span>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <strong>G. Bai</strong>, U. Koley, S. Mishra, and R. Molinaro.
+                    Physics informed neural networks (PINNs) for approximating nonlinear dispersive PDEs.
+                    <span class="journal">Journal of Computational Mathematics</span>, 2021.
+                    <span class="publication-links"><a href="https://doi.org/10.4208/jcm.2101-m2020-0342">doi: 10.4208/jcm.2101-m2020-0342</a></span>
+                  </p>
+                </li>
+              </ol>
+            </section>
+
+            <section>
+              <h2>Links</h2>
+              <ul class="journal-links">
+                <li><a href="https://link.springer.com/journal/10208">Foundations of Computational Mathematics</a></li>
+                <li><a href="https://link.springer.com/journal/211">Numerische Mathematik</a></li>
+                <li><a href="https://www.ams.org/publications/journals/journalsframework/mcom">Mathematics of Computation</a></li>
+                <li><a href="https://academic.oup.com/imajna">IMA Journal of Numerical Analysis</a></li>
+                <li><a href="https://epubs.siam.org/journal/sjnaam">SIAM Journal on Numerical Analysis</a></li>
+              </ul>
+            </section>
+          </main>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
